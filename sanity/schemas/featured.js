@@ -13,14 +13,12 @@ export default{
             name: "short_description",
             title: "Short description",
             type: "string",
-            validation: (Rule) => Rule.required(),
+            validation: (Rule) => Rule.max(200),
           },
           {
             name: "restaurants",
             title: "Restaurants",
             type: "array",
-            validation: (Rule) => Rule.required(),
-            type:"reference",
             of:[{type:"reference",to:[{type:"restaurant"}]}],
           },
     ]

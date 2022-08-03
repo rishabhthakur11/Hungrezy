@@ -58,8 +58,6 @@ export default {
       name: "dishes",
       title: "Dishes",
       type: "array",
-      validation: (Rule) => Rule.required(),
-      type:"reference",
       of:[{type:"reference",to:[{type:"dish"}]}],
     },
   ],
