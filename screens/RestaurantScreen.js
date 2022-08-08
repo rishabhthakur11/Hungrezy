@@ -15,6 +15,7 @@ import {
   LocationMarkerIcon,
   StarIcon,
 } from "react-native-heroicons/solid";
+import DishRow from "../components/DishRow";
 import { urlFor } from "../sanity";
 
 const RestaurantScreen = () => {
@@ -41,7 +42,9 @@ const RestaurantScreen = () => {
   }, []);
   return (
     <SafeAreaView className="bg-black">
-      <ScrollView>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+      >
         <View className="relative">
           <Image
             source={{
@@ -85,7 +88,17 @@ const RestaurantScreen = () => {
           </TouchableOpacity>
         </View>
         <View className="bg-gray-100">
-          <Text className="px-4 pt-6 font-bold text-xl">Menu</Text>
+          <Text className="px-4 pt-6 font-bold text-xl mb-2">Menu</Text>
+          {dishes.map((dish) => (
+            <DishRow
+              key={dish._id}
+              id={dish._id}
+              name={dish.name}
+              description={dish.short_description}
+              price={dish.price}
+              image={dish.image}
+            />
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>
