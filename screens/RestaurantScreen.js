@@ -1,5 +1,5 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import {
   View,
   Text,
@@ -15,11 +15,14 @@ import {
   LocationMarkerIcon,
   StarIcon,
 } from "react-native-heroicons/solid";
+import { useDispatch } from "react-redux";
 import BasketIcon from "../components/BasketIcon";
 import DishRow from "../components/DishRow";
+import { setRestaurant } from "../features/restaurantSlice";
 import { urlFor } from "../sanity";
 
 const RestaurantScreen = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
   const {
     params: {
@@ -35,6 +38,21 @@ const RestaurantScreen = () => {
       lat,
     },
   } = useRoute();
+
+  useEffect(() => {
+    dispatch(
+      setRestaurant({
+        id,
+        imgUrl,
+        title,
+        rating,
+        genre,
+        address,
+        short_description,
+        dishes,
+      })
+    );
+  }, [dispatch]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
