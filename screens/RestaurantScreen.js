@@ -50,6 +50,8 @@ const RestaurantScreen = () => {
         address,
         short_description,
         dishes,
+        long,
+        lat,
       })
     );
   }, [dispatch]);
@@ -65,7 +67,7 @@ const RestaurantScreen = () => {
       <SafeAreaView className="bg-black">
         <ScrollView
           contentContainerStyle={{
-            paddingBottom: 60,
+            paddingBottom: 100,
           }}
           className="bg-white"
           showsVerticalScrollIndicator={false}
