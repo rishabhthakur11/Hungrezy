@@ -140,9 +140,6 @@ expo start
 
 https://user-images.githubusercontent.com/74073486/183715506-4d357072-4986-4d15-b5d7-cefc059320e5.mp4
 
-
-![screenshot](./screenshots/DemoVideo.mp4)
-
 <!-- ROADMAP -->
 
 ## Roadmap
